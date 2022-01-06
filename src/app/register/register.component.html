@@ -1,0 +1,105 @@
+<div class="container-fluid mt-2">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="card w-50 shadow">
+            <div class="card-header bg-white">
+                <h2 class="text-center">Registration</h2>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="regemp" (ngSubmit)="register()" class="row g-3">
+                    <!-- Username -->
+                    <div class="col-sm-12 col-md-6">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" formControlName="username" class="form-control" id="username" placeholder="Username">
+                    </div>
+                    <!-- Password -->
+                    <div class="col-sm-12 col-md-6">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" formControlName="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <!-- Fullname -->
+                    <div class="col-sm-12 col-md-6">
+                        <label for="fullname">Fullname</label>
+                        <input type="text" name="fullname" formControlName="fullname" class="form-control" id="fullname" placeholder="Fullname">
+                    </div>
+                    <!-- Date of birth -->
+                    <div class="col-sm-12 col-md-6">
+                        <label for="dob">Date of birth: </label>
+                        <input type="datetime-local" name="dob" formControlName="dob" id="dob" class="form-control">
+                    </div>
+                    <!-- E-mail -->
+                    <div class="col-sm-12 col-md-6">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" formControlName="email" class="form-control" id="email" placeholder="E-mail address">
+                    </div>
+                    <!-- Mobile -->
+                    <div class="col-sm-12 col-md-6">
+                        <label for="mobile">Mobile: </label>
+                        <input type="number" name="mobile" formControlName="mobile" id="mobile" class="form-control" placeholder="Mobile number">
+                    </div>
+                    <!-- Gender -->
+                    <div class="col-sm-12 col-md-3">
+                        <label for="gender" class="d-block mb-2">Gender : </label>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" formControlName="gender" id="male" value="Male">
+                            <label for="male" class="form-check-label">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" formControlName="gender" id="female" value="Female">
+                            <label for="female" class="form-check-label">Female</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Languages -->
+                    <div class="col-sm-12 col-md-9">
+                        <label for="languages" class="d-block mb-2">Languages : </label>
+                        <div *ngFor="let lang of languages; let i=index" class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" [name]="i+1" (change)="onChange($event)" [id]="lang.value" [value]="lang.value">
+                            <label for="{{lang.value}}" class="form-check-label">{{lang.title}}</label>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-sm-12 col-md-9">
+                        <label for="languages" class="d-block mb-2">Languages : </label>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" name="languages" formControlName="languages" id="Telugu" value="Telugu">
+                            <label for="Telugu" class="form-check-label">Telugu</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" name="languages" formControlName="languages" id="Marathi" value="Marathi">
+                            <label for="Marathi" class="form-check-label">Marathi</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" name="languages" formControlName="languages" id="Tamil" value="Tamil">
+                            <label for="Tamil" class="form-check-label">Tamil</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" name="languages" formControlName="languages" id="Kannada" value="Kannada">
+                            <label for="Kannada" class="form-check-label">Kannada</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" name="languages" formControlName="languages" id="Hindi" value="Hindi">
+                            <label for="Hindi" class="form-check-label">Hindi</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" name="languages" formControlName="languages" id="English" value="English">
+                            <label for="English" class="form-check-label">English</label>
+                        </div>
+                        
+                    </div> -->
+
+                    <!-- terms and conditions -->
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" name="status" formControlName="status" id="accept" value="1">
+                            <label for="accept" class="form-check-label">I agree tems and conditions</label>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <div>Already have account <a routerLink="/login" class="text-decoration-none">Login</a></div> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
